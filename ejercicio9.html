@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio_9</title>
+    <script src="validaciones.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="style_one.css">
+</head>
+<body>
+    <div class="Principal">
+        <h2>Formulario de Registro</h2>
+    <form id="registroForm" action="ejercicio9.html"  onsubmit="return ejercicio9(this)">
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input class="cuadro" type="text" id="nombre" name="nombre" placeholder="Ingrese su Nombre">
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" class="cuadro" placeholder="Ingrese su Correo Electronico">
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="text" id="password" name="password" class="cuadro" placeholder="Ingrese su Contraseña">
+        </div>
+        <div>
+            <label for="comentarios">Comentarios:</label>
+            <textarea id="comentarios" name="comentarios"></textarea>
+        </div>
+        <div>
+            <input type="checkbox" id="condiciones" name="condiciones">
+            <label for="condiciones">Acepto las condiciones del servicio</label>
+        </div>
+        <div>
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+
+    </div>
+</body>
+</html>

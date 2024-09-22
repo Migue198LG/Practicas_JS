@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio_7</title>
+    <script src="validaciones.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="style_one.css">
+</head>
+<body>
+    <div class="Principal">
+        <form name="horas" onsubmit="return ejercicio7(this)">
+            <h1>Cantidad a pagar por Horas Extra</h1>
+            <p>Ingrese el Pago por Hora</p>
+            <input class="cuadro" type="text" name="pagohora" id="pagohora">
+            <br>
+            <p>Ingrese las Horas Extra Trabajadas</p>
+            <input class="cuadro" type="text" name="horaextra" id="horaextra">
+            <br>
+            <input class="boton" type="submit" id="Enviar" value="Enviar">
+            <input class="boton" type="reset" id="Reset" value="Resetear">
+            <br><br>
+        </form>
+        <br>
+        <label id="resultado"></label>
+    </div>
+</body>
+</html>
