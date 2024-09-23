@@ -5,7 +5,7 @@ function ejercicio1(form) {
     let capitalInicial = form.capital.value.trim();
     let capitalFinal =  capitalInicial * Math.pow(1 + tasaDecimal,1);
 
-    if (isNaN(capitalInicial) || capitalInicial < 0 || isLetter(capitalInicial) || capitalInicial === "" || !validarsignos(capitalInicial)) {
+    if (isNaN(capitalInicial) || capitalInicial < 0 || isLetter(capitalInicial) || capitalInicial === "" || tieneSignos(capitalInicial)) {
         alert("Por favor, ingresa un valor numérico valido para el capital inicial.");
         return false; 
     } else{
@@ -26,14 +26,14 @@ function ejercicio2(form) {
     let venta2 = form.venta2.value.trim();
     let venta3 = form.venta3.value.trim();
 
-    if (isNaN(sueldobase) || sueldobase < 0 || isLetter(sueldobase) || sueldobase === "" || !validarsignos(sueldobase)) {
+    if (isNaN(sueldobase) || sueldobase < 0 || isLetter(sueldobase) || sueldobase === "" || tieneSignos(sueldobase)) {
         alert("Por favor, ingresa un valor numérico válido para el sueldo base.");
         return false;
     }
 
-    if (isNaN(venta1) || venta1 < 0 || isLetter(venta1) || venta1 === "" || !validarsignos(venta1) ||
-        isNaN(venta2) || venta2 < 0 || isLetter(venta2) || venta2 === "" || !validarsignos(venta2) ||
-        isNaN(venta3) || venta3 < 0 || isLetter(venta3) || venta3 === "" || !validarsignos(venta3)) {
+    if (isNaN(venta1) || venta1 < 0 || isLetter(venta1) || venta1 === "" || tieneSignos(venta1) ||
+        isNaN(venta2) || venta2 < 0 || isLetter(venta2) || venta2 === "" || tieneSignos(venta2) ||
+        isNaN(venta3) || venta3 < 0 || isLetter(venta3) || venta3 === "" || tieneSignos(venta3)) {
         alert("Por favor, ingresa valores numéricos válidos para las ventas.");
         return false;
     }
@@ -57,7 +57,7 @@ function ejercicio3(form) {
 
     let TotalCompra = form.compra.value.trim();
 
-    if (isNaN(TotalCompra) || TotalCompra < 0 || isLetter(TotalCompra) || TotalCompra === "" || !validarsignos(TotalCompra)) {
+    if (isNaN(TotalCompra) || TotalCompra < 0 || isLetter(TotalCompra) || TotalCompra === "" || tieneSignos(TotalCompra)) {
         alert("Por favor, ingresa un valor numérico valido para la Compra Total.");
         return false; 
     } else{
@@ -74,33 +74,33 @@ function ejercicio3(form) {
 // ----------- Ejercicio 4 -----------
 
 function ejercicio4(form) {
-    let parcialuno = parseFloat(form.parcial1.value.trim());
-    let parcialdos = parseFloat(form.parcial2.value.trim());
-    let parcialtres = parseFloat(form.parcial3.value.trim());
-    let examenFinal = parseFloat(form.examen.value.trim());
-    let trabajoFinal = parseFloat(form.trabajo.value.trim());
+    let parcialuno = form.parcial1.value.trim();
+    let parcialdos = form.parcial2.value.trim();
+    let parcialtres = form.parcial3.value.trim();
+    let examenFinal = form.examen.value.trim();
+    let trabajoFinal = form.trabajo.value.trim();
 
-    if (parcialuno < 0 || parcialuno > 10 || isNaN(parcialuno) || isLetter(parcialuno) || parcialuno === "" || !validarsignos(parcialuno) ||
-    parcialdos < 0 || parcialdos > 10 || isNaN(parcialdos) || isLetter(parcialdos) || parcialdos === "" || !validarsignos(parcialdos) ||
-    parcialtres < 0 || parcialtres > 10 || isNaN(parcialtres) || isLetter(parcialtres) || parcialtres === "" || !validarsignos(parcialtres)) {
+    if (parcialuno < 0 || parcialuno > 10 || isNaN(parcialuno) || isLetter(parcialuno) || parcialuno === "" || tieneSignos(parcialuno) ||
+    parcialdos < 0 || parcialdos > 10 || isNaN(parcialdos) || isLetter(parcialdos) || parcialdos === "" || tieneSignos(parcialdos) ||
+    parcialtres < 0 || parcialtres > 10 || isNaN(parcialtres) || isLetter(parcialtres) || parcialtres === "" || tieneSignos(parcialtres)) {
         alert("Por favor, ingresa valores numéricos válidos para las calificaciones de parciales (entre 0 y 10).");
         return false;
     }
 
-    if (examenFinal < 0 || examenFinal > 10 || isNaN(examenFinal) || isLetter(examenFinal) || examenFinal === "" || !validarsignos(examenFinal)) {
+    if (examenFinal < 0 || examenFinal > 10 || isNaN(examenFinal) || isLetter(examenFinal) || examenFinal === "" || tieneSignos(examenFinal)) {
         alert("Por favor, ingresa un valor numérico válido para la calificación del examen final (entre 0 y 10).");
         return false;
     }
 
-    if (trabajoFinal < 0 || trabajoFinal > 10 || isNaN(trabajoFinal) || isLetter(trabajoFinal) || trabajoFinal === "" || !validarsignos(trabajoFinal)) {
+    if (trabajoFinal < 0 || trabajoFinal > 10 || isNaN(trabajoFinal) || isLetter(trabajoFinal) || trabajoFinal === "" || tieneSignos(trabajoFinal)) {
         alert("Por favor, ingresa un valor numérico válido para la calificación del trabajo final (entre 0 y 10).");
         return false;
     }
 
-    let promedio = (parcialuno + parcialdos + parcialtres) / 3;
-    let calificacionA = promedio * 55 / 100;
-    let calificacionB = examenFinal * 30 / 100;
-    let calificacionC = trabajoFinal * 15 / 100;
+    let promedio = parseFloat((parcialuno + parcialdos + parcialtres)) / 3;
+    let calificacionA = parseFloat(promedio * 55 / 100);
+    let calificacionB = parseFloat(examenFinal * 30 / 100);
+    let calificacionC = parseFloat(trabajoFinal * 15 / 100);
 
     let calificacionFinal = calificacionA + calificacionB + calificacionC;
     alert("La calificación Final es: " + calificacionFinal.toFixed(2));
@@ -111,25 +111,25 @@ function ejercicio4(form) {
 // ----------- Ejercicio 5 -----------
 
 function ejercicio5(form){
-    let anioNacimiento = parseFloat(form.anio_nacido.value.trim());
-    let mesNacimiento = parseFloat(form.mes_nacido.value.trim());
-    let diaNacimiento = parseFloat(form.dia_nacido.value.trim());
+    let anioNacimiento = form.anio_nacido.value.trim();
+    let mesNacimiento = form.mes_nacido.value.trim();
+    let diaNacimiento = form.dia_nacido.value.trim();
 
-    let anioHoy = parseFloat(form.anio_actual.value.trim());
-    let mesHoy = parseFloat(form.mes_actual.value.trim());
-    let diaHoy = parseFloat(form.dia_actual.value.trim());
+    let anioHoy = form.anio_actual.value.trim();
+    let mesHoy = form.mes_actual.value.trim();
+    let diaHoy = form.dia_actual.value.trim();
 
-    if (!esFechaValida(anioNacimiento, mesNacimiento, diaNacimiento) || !validarsignos(anioNacimiento) || !validarsignos(mesNacimiento) || !validarsignos(diaNacimiento)) {
+    if (!esFechaValida(anioNacimiento, mesNacimiento, diaNacimiento) || tieneSignos(anioNacimiento) || tieneSignos(mesNacimiento) || tieneSignos(diaNacimiento)) {
         alert("La fecha de nacimiento ingresada no es válida.");
         return false;
     }
 
-    if (!esFechaValida(anioHoy, mesHoy, diaHoy) || !validarsignos(anioHoy) || !validarsignos(mesHoy) || !validarsignos(diaHoy)) {
+    if (!esFechaValida(anioHoy, mesHoy, diaHoy) || tieneSignos(anioHoy) || tieneSignos(mesHoy) || tieneSignos(diaHoy)) {
         alert("La fecha actual ingresada no es válida.");
         return false;
     }
 
-    let edad = calcularEdad(anioNacimiento, mesNacimiento, diaNacimiento, anioHoy, mesHoy, diaHoy);
+    let edad = parseFloat(calcularEdad(anioNacimiento, mesNacimiento, diaNacimiento, anioHoy, mesHoy, diaHoy));
     alert("La edad calculada es: " + edad);
 
     return true;
@@ -163,8 +163,8 @@ function ejercicio7(form) {
     let horasExtrasDobles = 8; 
 
 
-    if (isNaN(HorasExtras) || HorasExtras < 0 || isLetter(HorasExtras) || HorasExtras === "" || !validarsignos(HorasExtras) ||
-        isNaN(pagoHoraNormal) || pagoHoraNormal < 0 || isLetter(pagoHoraNormal) || pagoHoraNormal === "" || !validarsignos(pagoHoraNormal)) {
+    if (isNaN(HorasExtras) || HorasExtras < 0 || isLetter(HorasExtras) || HorasExtras === "" || tieneSignos(HorasExtras) ||
+        isNaN(pagoHoraNormal) || pagoHoraNormal < 0 || isLetter(pagoHoraNormal) || pagoHoraNormal === "" || tieneSignos(pagoHoraNormal)) {
         alert("Por favor, ingresa un valor numérico valido para el Pago y las Horas.");
         return false; 
     } else {
@@ -187,37 +187,37 @@ function ejercicio7(form) {
 // ----------- Ejercicio 8   -----------
 
 function ejercicio8(form){
-    let salarioMensual = parseFloat(form.salario.value.trim());
-    let anioantiguo = parseFloat(form.anio.value.trim());
-    let mesantiguo = parseFloat(form.mes.value.trim());
-    let antiguedad = parseFloat(anioantiguo) + parseFloat(mesantiguo) / 12;
+    let salarioMensual = form.salario.value.trim();
+    let anioantiguo = form.anio.value.trim();
+    let mesantiguo = form.mes.value.trim();
+    let antiguedad = anioantiguo + parseFloat(mesantiguo) / 12;
     let utilidad;
 
-    if (isNaN(salarioMensual) || salarioMensual < 0 || isLetter(salarioMensual) || salarioMensual === "" || !validarsignos(salarioMensual)) {
+    if (isNaN(salarioMensual) || salarioMensual < 0 || isLetter(salarioMensual) || salarioMensual === "" || tieneSignos(salarioMensual)) {
         alert("Por favor, ingresa un salario mensual válido.");
         return false; 
     }
 
-    if (isNaN(anioantiguo) || anioantiguo < 0 || isLetter(anioantiguo) || anioantiguo === "" || !validarsignos(anioantiguo)) {
+    if (isNaN(anioantiguo) || anioantiguo < 0 || isLetter(anioantiguo) || anioantiguo === "" || tieneSignos(anioantiguo)) {
         alert("Por favor, ingresa un año de antigüedad válido.");
         return false; 
     }
 
-    if (isNaN(mesantiguo) || mesantiguo < 1 || isLetter(mesantiguo) || mesantiguo === "" || !validarsignos(mesantiguo) || mesantiguo > 12) {
+    if (isNaN(mesantiguo) || mesantiguo < 1 || isLetter(mesantiguo) || mesantiguo === "" || tieneSignos(mesantiguo) || mesantiguo > 12) {
         alert("Por favor, ingresa un mes de antigüedad válido (entre 1 y 12).");
         return false;
     }
 
     if (antiguedad < 1) {
-        utilidad = salarioMensual * 0.05; // Menos de 1 año
+        utilidad = parseFloat(salarioMensual * 0.05); // Menos de 1 año
     } else if (antiguedad >= 1 && antiguedad < 2) {
-        utilidad = salarioMensual * 0.07; // 1 año o más y menos de 2 años
+        utilidad = parseFloat(salarioMensual * 0.07); // 1 año o más y menos de 2 años
     } else if (antiguedad >= 2 && antiguedad < 5) {
-        utilidad = salarioMensual * 0.10; // 2 años o más y menos de 5 años
+        utilidad = parseFloat(salarioMensual * 0.10); // 2 años o más y menos de 5 años
     } else if (antiguedad >= 5 && antiguedad < 10) {
-        utilidad = salarioMensual * 0.15; // 5 años o más y menos de 10 años
+        utilidad = parseFloat(salarioMensual * 0.15); // 5 años o más y menos de 10 años
     } else if (antiguedad >= 10) {
-        utilidad = salarioMensual * 0.20; // 10 años o más
+        utilidad = parseFloat(salarioMensual * 0.20); // 10 años o más
     }
     
     alert("Su utilidad es de: $" + utilidad.toFixed(2));
@@ -288,10 +288,10 @@ function ejercicio10(form) {
         alert("Su nuevo texto es: " + nuevoTexto);
     } catch (e) {
         console.log(`Error: ${e.message}`);
-        return false; // Evita el envío del formulario en caso de error
+        return false;
     }
 
-    return false; // Evita el envío del formulario
+    return false; 
 }
 
 // Funcion palabrasANumeros
@@ -310,7 +310,7 @@ function palabrasANumeros(frase) {
     };
     frase = frase.trim();
 
-    // Dividir la frase en palabras eliminando espacios en blanco adicionales
+    // Dividir la frase en palabras
     let palabras = frase.split(" ").filter(palabra => palabra !== '');
 
     let resultado = palabras.map(palabra => {
@@ -387,7 +387,7 @@ function diasEnMes(anio, mes) {
 
 // Función para determinar si un año es bisiesto
 function esAnioBisiesto(anio) {
-    return (anio % 4 === 0 && anio % 100 !== 0) || (anio % 400 === 0);
+    return (anio % 4 === 0);
 }
 
 // Funcion para validar si hay letras
@@ -395,7 +395,9 @@ function isLetter(char) {
     return /^[a-zA-Z]$/.test(char);
 }
 
-function validarsignos(char) {
-    return /^[^+\-*\/]*$/.test(char);
-
+function tieneSignos(numero) {
+    const signos = /[+\-*\/]/;
+    return signos.test(numero);
 }
+
+console.log(tieneSignos("/"));  
